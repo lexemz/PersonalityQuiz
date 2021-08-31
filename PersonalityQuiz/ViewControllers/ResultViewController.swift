@@ -46,7 +46,7 @@ class ResultViewController: UIViewController {
          [cat, rabbit, cat, rabbit, rabbit, dog]
          
          и cat и rabbit - несколько раз встречаются в ответах, поэтому нужен
-         отсортированный по кол-ву дубликатов масив [rabbit, dog]. */
+         отсортированный по кол-ву дубликатов масив [rabbit, cat]. */
         let duplicatesDescendingOrder = answersDuplicates
             .sorted { $0.1.count > $1.1.count }
             .map { $0.0 }
