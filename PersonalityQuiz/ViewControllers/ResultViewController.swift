@@ -8,10 +8,7 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    // 1. Передать сюда массив с ответами
-    // 2. Определить наиболее часто встречающийся тип животного
-    // 3. Отобразить результат в соответствии с этим животным
-    // 4. Избавиться от кнопки возврата на предыдущий экран
+ 
     @IBOutlet var resultTitle: UILabel!
     @IBOutlet var resultDescription: UILabel!
 
@@ -38,12 +35,12 @@ class ResultViewController: UIViewController {
             by: { $0 }
         ).filter { $1.count > 1 }
 
-        /* Реализация данного приложения не предусматривает случаи, когда
-         дубликаты ответов есть, но их количество разное.
+        /* Текущая реализация данного приложения не предусматривает случаи,
+         когда дубликаты ответов есть, но их количество разное.
          
          Например:
-         если добавить ещё один вопрос, определяющий каким животным является пользователь,
-         то количество дубликатов может быть >1 и
+         Если добавить ещё один вопрос, определяющий каким животным является
+         пользователь, то количество дубликатов может быть >1 и
          один из дубликатов может встречаться чаще другого:
          
          [cat, rabbit, cat, rabbit, rabbit, dog]
@@ -53,12 +50,6 @@ class ResultViewController: UIViewController {
         let duplicatesDescendingOrder = answersDuplicates
             .sorted { $0.1.count > $1.1.count }
             .map { $0.0 }
-
-        answersChosen.forEach { print($0.animal) }
-        print()
-        print(answersDuplicates.values)
-        print()
-        print(duplicatesDescendingOrder)
 
         // если дубликатов животных нет в ответах, возвращаем первый выбранный пользователем ответ
         if answersDuplicates.isEmpty {
