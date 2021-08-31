@@ -263,13 +263,7 @@
                             <constraint firstItem="EPM-0M-eoA" firstAttribute="trailing" secondItem="fuE-g0-rBS" secondAttribute="trailing" constant="16" id="zAe-mI-FMk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Вопрос №" id="Rt0-TY-bXC">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="fWo-aH-5Ij">
-                            <connections>
-                                <segue destination="ybD-fs-ro5" kind="show" id="XKL-Kc-wv6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="Rt0-TY-bXC"/>
                     <connections>
                         <outlet property="multipleStackView" destination="eab-QM-nKy" id="HtE-AR-TeE"/>
                         <outlet property="questionLabel" destination="jCn-gc-uJv" id="wtW-Lo-uPH"/>
@@ -339,6 +333,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resultDescription" destination="ubD-vy-JkF" id="fxc-db-nvP"/>
+                        <outlet property="resultTitle" destination="bIB-Ip-f7f" id="bBr-m8-62N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKR-tJ-42c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="WWM-TC-Lk4" userLabel="Exit" sceneMemberID="exit"/>
@@ -364,9 +362,6 @@
             <point key="canvasLocation" x="810" y="98.239436619718305"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pSP-fU-8Xc"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
