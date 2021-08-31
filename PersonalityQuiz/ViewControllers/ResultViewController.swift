@@ -62,7 +62,8 @@ class ResultViewController: UIViewController {
             return answersChosen.first?.animal
         }
 
-        // если есть дубликаты, ищем первое упомянутое животное среди дубликатов
+        /* если есть дубликаты, ищем первое упомянутое животное среди дубликатов
+        от более частого отвека к менее частому */
         for answer in answersChosen {
             if duplicatesDescendingOrder.contains(answer.animal) {
                 return answer.animal
