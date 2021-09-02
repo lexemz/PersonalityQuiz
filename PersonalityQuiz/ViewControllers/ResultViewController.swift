@@ -16,17 +16,21 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: false)
 
-        identifyAnimal()
+        updateUI()
     }
 
-    private func identifyAnimal() {
-        let countedSet = NSCountedSet(array: answersChosen.map { $0.animal })
-        let mostFrequent = countedSet.max { countedSet.count(for: $0) < countedSet.count(for: $1) }
-        guard let findedAnimal = mostFrequent as? Animal else { return }
-
+    private func updateUI() {
+        guard let findedAnimal = identifyAnimal() else { return }
         resultTitle.text = "Вы - \(findedAnimal.rawValue)"
         resultDescription.text = findedAnimal.definition
+    }
+
+    private func identifyAnimal() -> Animal? {
+        let countedSet = NSCountedSet(array: answersChosen.map { $0.animal })
+        let mostFrequent = countedSet.max { countedSet.count(for: $0) < countedSet.count(for: $1) }
+        guard let findedAnimal = mostFrequent as? Animal else { return nil }
+        return findedAnimal
     }
 }
